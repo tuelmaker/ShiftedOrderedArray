@@ -16,7 +16,7 @@ namespace Microsoft.GSX.Demo.ShiftedOrderedArray
             {
                 decimal split = 10M;
                 //int[] array = CreateArray(93.1M, 1000000);
-                int[] array = CreateArray(split, 1000);
+                int[] array = CreateArray(split, 10000);
                 Console.WriteLine(array.Count());
 
                 //Console.WriteLine(Helper.Finders.FindShiftPosition_n(new int[] { 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 2, 3 }));
