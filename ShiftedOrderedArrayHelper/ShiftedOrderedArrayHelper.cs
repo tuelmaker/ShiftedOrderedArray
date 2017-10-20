@@ -30,6 +30,8 @@ namespace Microsoft.GSX.Demo.ShiftedOrderedArray.Helper
             {
                 if (array[i]>array[i+1])
                 {
+                    Console.WriteLine(string.Format("O(n) - Loops completed: {0}", i.ToString()));
+                    Console.WriteLine(string.Format("O(n) - Index just after break occurs: {0}", (i+1).ToString()));
                     return i+1;
                 }
             }
@@ -132,7 +134,7 @@ namespace Microsoft.GSX.Demo.ShiftedOrderedArray.Helper
                     if(array[beginOffset] > array[endOffset])
                     {
                         continueCheck = false;
-                        Console.WriteLine(string.Format("Index just after break occurs: {0}", endOffset.ToString()));
+                        Console.WriteLine(string.Format("O(log n) - Index just after break occurs: {0}", endOffset.ToString()));
                         return endOffset;
                     }                    
                 }

@@ -12,16 +12,24 @@ namespace Microsoft.GSX.Demo.ShiftedOrderedArray
     {
         static void Main(string[] args)
         {
-            //int[] array = CreateArray(93.1M, 1000000);
-            int[] array = CreateArray(10M, 1000);
-            Console.WriteLine(array.Count());
-            //Console.Read();
-            /// This will hook into the ShiftedOrderedArray.Helper and use that to call the method and output to the console
-            /// 
-            //Console.WriteLine(Helper.Finders.FindShiftPosition_n(new int[] { 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 2, 3 }));
-            //Console.WriteLine(Helper.Finders.FindShiftPosition_Logn(new int[] { 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,36,37,38,39,40, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ,19, 20,21, 22, 23}));
-            Console.WriteLine(Helper.Finders.FindShiftPosition_Logn(array));
-            Console.WriteLine(Helper.Finders.FindShiftPosition_n(array));
+            try
+            {
+                decimal split = 10M;
+                //int[] array = CreateArray(93.1M, 1000000);
+                int[] array = CreateArray(split, 1000);
+                Console.WriteLine(array.Count());
+
+                //Console.WriteLine(Helper.Finders.FindShiftPosition_n(new int[] { 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 2, 3 }));
+                //Console.WriteLine(Helper.Finders.FindShiftPosition_Logn(new int[] { 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,36,37,38,39,40, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ,19, 20,21, 22, 23}));
+                Console.WriteLine(string.Format("Running array with {0} elements with a split at the {1} percent point", array.Count().ToString(), split.ToString()));
+                Console.WriteLine(Helper.Finders.FindShiftPosition_Logn(array));
+                Console.WriteLine(Helper.Finders.FindShiftPosition_n(array));
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(string.Format("Exception: {0}\r\nStack: {1}", ex.Message, ex.StackTrace));
+                Console.Read();
+            }
 
             Console.Read();
         }
